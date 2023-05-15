@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".register.RegisterActivity"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnDeparture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1.0"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/car_animation"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDeparture"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_white_box"
+            android:textSize="14sp"
+            android:text="@string/departure"
+            android:drawableLeft="@drawable/ic_baseline_departure_board_24"
+            android:paddingStart="24dp"
+            android:drawablePadding="-24dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/btnDestination"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDestination"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_white_box"
+            android:text="@string/destination"
+            android:drawableLeft="@drawable/ic_baseline_where_to_vote_24"
+            android:paddingStart="20dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:drawablePadding="-24dp"
+            app:layout_constraintBottom_toTopOf="@id/btnDate"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDate"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_white_box"
+            android:text="@string/pick_date"
+            android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+            android:paddingStart="20dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:drawablePadding="-24dp"
+            app:layout_constraintBottom_toTopOf="@id/btnTime"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTime"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_white_box"
+            android:text="@string/choose_time"
+            android:drawableLeft="@drawable/ic_baseline_access_time_24"
+            android:paddingStart="20dp"
+            app:layout_constraintBottom_toTopOf="@id/etPrice"
+            android:drawablePadding="-24dp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPrice"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:textSize="14sp"
+            android:inputType="numberDecimal"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_white_box"
+            android:text="@string/price"
+            android:drawableLeft="@drawable/ic_price"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            app:layout_constraintBottom_toTopOf="@id/etSeats"
+            android:drawablePadding="-24dp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSeats"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_white_box"
+            android:text="@string/seats"
+            android:drawableLeft="@drawable/ic_seat"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            app:layout_constraintBottom_toTopOf="@id/btnSubmit"
+            android:drawablePadding="-24dp"/>
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_round_button"
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:alpha="0"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:backgroundTint="@color/main_color"
+        android:elevation="10dp"
+        android:visibility="gone"
+        android:padding="140dp"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/imgSuccess"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="48dp"/>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtSuccess"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/imgSuccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/trip_created_success"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTripResult"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@id/txtSuccess"
+        app:layout_constraintStart_toStartOf="@id/imgSuccess"
+        app:layout_constraintEnd_toEndOf="@id/txtSuccess"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:visibility="gone"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_round_button"
+        android:text="NEXT"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

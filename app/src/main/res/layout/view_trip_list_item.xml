@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/singleLineRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:onClick="editOneTrip"
+    >
+
+    <TextView
+        android:id="@+id/txtDeparture"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:text="From:"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtDepartureInfo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtDeparture"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_height="wrap_content"
+        android:text="Rua do Outeiro"
+        android:textStyle="bold"
+        android:textColor="@color/nav_color"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtDestination"
+        app:layout_constraintTop_toBottomOf="@id/txtDeparture"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To:"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtDestinationInfo"
+        app:layout_constraintTop_toTopOf="@id/txtDestination"
+        app:layout_constraintBottom_toBottomOf="@id/txtDestination"
+        app:layout_constraintStart_toEndOf="@id/txtDeparture"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:layout_marginStart="32dp"
+        android:layout_height="wrap_content"
+        android:text="Rua do Outeiro"
+        android:textStyle="bold"
+        android:textColor="@color/nav_color"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/imgDate"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_baseline_access_time_24"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/imgSeats"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtDate"
+        app:layout_constraintTop_toTopOf="@id/imgDate"
+        app:layout_constraintBottom_toBottomOf="@id/imgDate"
+        app:layout_constraintStart_toEndOf="@id/imgDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="12 Jun 2022, 15:59"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/imgSeats"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_seat"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/txtDestination"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtSeats"
+        app:layout_constraintTop_toTopOf="@id/imgSeats"
+        app:layout_constraintBottom_toBottomOf="@id/imgSeats"
+        app:layout_constraintStart_toEndOf="@id/imgSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="4"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/imgPrice"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_price"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/txtDestination"
+        app:layout_constraintStart_toEndOf="@id/txtDestination"
+        android:layout_marginStart="48dp"/>
+
+    <TextView
+        android:id="@+id/txtPrice"
+        app:layout_constraintTop_toTopOf="@id/imgPrice"
+        app:layout_constraintBottom_toBottomOf="@id/imgPrice"
+        app:layout_constraintStart_toEndOf="@id/imgPrice"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="6€"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/txtDate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

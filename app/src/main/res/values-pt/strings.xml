@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UpDriven</string>
+    <string name="login">Entrar</string>
+    <string name="register">Registar</string>
+    <string name="enter_email">Email</string>
+    <string name="enter_your_password">Password</string>
+    <string name="enter_your_username">Username</string>
+    <string name="enter_your_name">Nome</string>
+    <string name="welcome">Bem Vindo à UpDriven</string>
+    <string name="not_a_member_register_here">Não tem conta ? Registe-se</string>
+    <string name="nav_open">Nav open</string>
+    <string name="nav_close">Nav close</string>
+    <string name="price">PREÇO</string>
+    <string name="seats">LUGARES DISPONÍVEIS</string>
+    <string name="trip_created_success">Viagem criada com sucesso</string>
+    <string name="error">Ocorreu um erro</string>
+    <string name="next">Seguinte</string>
+    <string name="try_again">Tentar de novo</string>
+    <string name="string_entry">Bem Vindo à UpDriven</string>
+    <string name="confirm">Confirmar</string>
+    <string name="departure">Partida</string>
+    <string name="driver">Condutor</string>
+    <string name="destination">Destino</string>
+    <string name="pick_date">Data</string>
+    <string name="choose_time">Hora</string>
+    <string name="here">AQUI</string>
+    <string name="enter_credentials">Introduza os seus dados</string>
+    <string name="from">De:</string>
+    <string name="error_search_view">Ocorreu um erro ao abrir a procura</string>
+    <string name="fill_fields">Complete todos os campos para adicionar a viagem</string>
+    <string name="to">Para:</string>
+    <string name="day">Dia:</string>
+    <string name="time">Hora:</string>
+    <string name="price_show">Preço:</string>
+    <string name="avaiable_seats">Lugares Disponíveis:</string>
+    <string name="reservation_confirmed">Viagem reservada com sucesso !</string>
+    <string name="upload_image">Por favor, adicione uma imagem</string>
+    <string name="select_picture">Escolha a fotografia</string>
+
+</resources>
