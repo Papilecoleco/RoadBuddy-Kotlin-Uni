@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -99,13 +100,34 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadImage() {
         if (filePath != null) {
-            storageReference?.child("myImages/$currentFirebaseUser")?.putFile(filePath!!)
+            Log.e("FILEPATH", filePath.toString())
+            val ref = storageReference?.child("myImages/$currentFirebaseUser")
+            ref?.putFile(filePath!!)
+                ?.addOnSuccessListener {
+                    // Image upload success, get the download URL
+                    ref.downloadUrl
+                        .addOnSuccessListener { downloadUrl ->
+                            // Save the download URL to the Firebase Database
+                            val imageUrl = downloadUrl.toString()
+                            database.child("Users").child(currentFirebaseUser).child("imageURL").setValue(imageUrl)
+                            Toast.makeText(this, "Image uploaded successfully!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, DashboardActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                ?.addOnFailureListener { exception ->
+                    Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+                }
         } else {
-            Toast.makeText(this, getString(R.string.upload_image), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
         }
-        startActivity(Intent(this, DashboardActivity::class.java))
-        finish()
     }
+
+
 
     private fun editNameOrUsername(child: String, value: String) {
         database.child("Users").child(currentFirebaseUser).child(child).setValue(value)
