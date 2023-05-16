@@ -29,6 +29,7 @@ class InfoTripActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         trip.userUid = Utils.getUserId(sharedPreferences)
 
+
         //no adapter tem um putextra onde mandamos o item[position] que é a trip em que clicamos,
         // serializable é para podermos passar um objeto desse tipo por intent
         tripInfo = intent.getSerializableExtra(Utils.TRIP_INFO) as Trip
@@ -40,6 +41,11 @@ class InfoTripActivity : AppCompatActivity() {
                 getString(R.string.reservation_confirmed),
                 Toast.LENGTH_SHORT
             ).show()
+
+            val seats = tripInfo.availableSeats.toInt() - 1
+            tripInfo.availableSeats = seats.toString()
+            databaseTripReference.child(tripInfo.id).setValue(tripInfo)
+
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()
         }
