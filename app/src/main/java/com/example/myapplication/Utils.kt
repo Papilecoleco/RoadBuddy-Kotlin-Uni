@@ -6,7 +6,7 @@ import com.google.firebase.database.FirebaseDatabase
 object Utils {
     var USER_ID: String = "userId"
     const val DB_URL = "https://roadbuddy-80319-default-rtdb.europe-west1.firebasedatabase.app"
-    const val API_KEY = "AIzaSyD4ZozQHrzWxTQ5rN8cHWoatI2-6VzwanU"
+    const val API_KEY = "AIzaSyCuZBgNJaCdscOY97ktuaqqmEW_6zX5T88"
     const val SEARCH_RESULT_CODE = 102
     const val PICK_IMAGE_REQUEST = 71
     const val TRIP_INFO = "TRIP_INFO"

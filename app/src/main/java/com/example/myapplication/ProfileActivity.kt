@@ -128,7 +128,6 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 
-
     private fun editNameOrUsername(child: String, value: String) {
         database.child("Users").child(currentFirebaseUser).child(child).setValue(value)
 

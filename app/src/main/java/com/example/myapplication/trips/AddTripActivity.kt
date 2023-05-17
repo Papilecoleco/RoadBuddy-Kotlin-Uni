@@ -146,7 +146,7 @@ class AddTripActivity : AppCompatActivity() {
          since the API isn't working, we don't check for RESULT_OK because we mocked the results
          if (resultCode == SEARCH_RESULT_CODE && resultCode == RESULT_OK) {
          */
-        if (resultCode == SEARCH_RESULT_CODE) {
+        if (resultCode == SEARCH_RESULT_CODE && resultCode == RESULT_OK) {
             if (data != null) {
                 val address = data.getStringExtra("address")
                 val lat = data.getStringExtra("lat")

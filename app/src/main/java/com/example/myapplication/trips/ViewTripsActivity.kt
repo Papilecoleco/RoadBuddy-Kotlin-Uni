@@ -43,7 +43,8 @@ class ViewTripsActivity : AppCompatActivity() {
                         val dataSnapshot: Trip = it.getValue(Trip::class.java) as Trip
                         val date = sdf.parse(dataSnapshot.date)
                         val isOutdated = Date().after(date)
-                        if (!isOutdated) tripsList.add(dataSnapshot)
+                        val isFull = dataSnapshot.availableSeats == "0"
+                        if (!isOutdated && !isFull) tripsList.add(dataSnapshot)
 
                     }
                     binding.tripsListRecyclerView.adapter = TripListAdapter(tripsList)

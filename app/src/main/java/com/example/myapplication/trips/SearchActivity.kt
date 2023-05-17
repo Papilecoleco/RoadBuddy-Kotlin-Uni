@@ -20,20 +20,6 @@ import kotlin.random.Random
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityTestBinding
-    private val fakeAdressList = listOf(
-        "Rua do Outeiro nº 25",
-        "Rua de S. Pedro nº 21",
-        "Largo de Montezelo",
-        "Centro Histórico Viana do Castelo",
-        "IPVC - ESTG",
-        "Continente Meadela",
-        "Praia Norte Viana do Castelo",
-        "IPVC - ESE",
-        "Rua dos Carvalhos nº 14"
-    )
-    private val fakeAdressLat = List(10) { Random.nextInt(0, 30) }.toString()
-
-    private val fakeAdressLong = List(10) { Random.nextInt(-30, 0) }.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,34 +37,27 @@ class SearchActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        //getAddressFromApiAndSetResult(requestCode, resultCode, data)
-
-        if(requestCode == SEARCH_RESULT_CODE) {
-            val intent = Intent()
-            intent.putExtra("address", fakeAdressList.random())
-            intent.putExtra("lat", fakeAdressLat)
-            intent.putExtra("long", fakeAdressLong)
-            setResult(SEARCH_RESULT_CODE, intent)
-            finish()
-        } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-            Toast.makeText(
-                this,
-                getString(R.string.error_search_view),
-                Toast.LENGTH_SHORT
-            ).show()
+        if (requestCode == SEARCH_RESULT_CODE) {
+            if (resultCode == RESULT_OK) {
+                getAddressFromApiAndSetResult(data)
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.error_search_view),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
-    //Not being used because API isn't working without paying
-    private fun getAddressFromApiAndSetResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == SEARCH_RESULT_CODE && resultCode == RESULT_OK) {
-            val place: Place = Autocomplete.getPlaceFromIntent(data)
-            val intent = Intent()
-            intent.putExtra("address", place.address)
-            intent.putExtra("lat", place.latLng?.latitude ?: "")
-            intent.putExtra("long", place.latLng?.longitude ?: "")
-            setResult(SEARCH_RESULT_CODE, intent)
-            finish()
-        }
+    private fun getAddressFromApiAndSetResult(data: Intent?) {
+        val place: Place = Autocomplete.getPlaceFromIntent(data)
+        val intent = Intent()
+        intent.putExtra("address", place.address)
+        intent.putExtra("lat", place.latLng?.latitude ?: "")
+        intent.putExtra("long", place.latLng?.longitude ?: "")
+        setResult(SEARCH_RESULT_CODE, intent)
+        finish()
     }
+
 }
