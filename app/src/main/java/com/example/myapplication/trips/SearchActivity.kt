@@ -3,6 +3,7 @@ package com.example.myapplication.trips
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
@@ -54,8 +55,22 @@ class SearchActivity : AppCompatActivity() {
         val place: Place = Autocomplete.getPlaceFromIntent(data)
         val intent = Intent()
         intent.putExtra("address", place.address)
-        intent.putExtra("lat", place.latLng?.latitude ?: "")
-        intent.putExtra("long", place.latLng?.longitude ?: "")
+
+        val latitude = place.latLng?.latitude
+        val longitude = place.latLng?.longitude
+
+        /*Log.e("LATITUDE", latitude.toString())
+        Log.e("LONGITUDE", longitude.toString())*/
+
+
+        if (latitude != null && longitude != null){
+            intent.putExtra("lat", latitude.toString())
+            intent.putExtra("long", longitude.toString())
+        } else {
+            intent.putExtra("lat", "default")
+            intent.putExtra("long", "default")
+        }
+
         setResult(SEARCH_RESULT_CODE, intent)
         finish()
     }

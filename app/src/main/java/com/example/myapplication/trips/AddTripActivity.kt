@@ -142,11 +142,7 @@ class AddTripActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        /* If API worked, we needed to verify both the result code and also if the resultCode was RESULT_OK,
-         since the API isn't working, we don't check for RESULT_OK because we mocked the results
-         if (resultCode == SEARCH_RESULT_CODE && resultCode == RESULT_OK) {
-         */
-        if (resultCode == SEARCH_RESULT_CODE && resultCode == RESULT_OK) {
+        if (resultCode == SEARCH_RESULT_CODE) {
             if (data != null) {
                 val address = data.getStringExtra("address")
                 val lat = data.getStringExtra("lat")
