@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UpDriven</string>
+    <string name="app_name">RoadBuddy</string>
     <string name="login">Entrar</string>
     <string name="register">Registar</string>
     <string name="enter_email">Email</string>
     <string name="enter_your_password">Password</string>
     <string name="enter_your_username">Username</string>
     <string name="enter_your_name">Nome</string>
-    <string name="welcome">Bem Vindo à UpDriven</string>
+    <string name="welcome">Bem Vindo à RoadBuddy</string>
     <string name="not_a_member_register_here">Não tem conta ? Registe-se</string>
     <string name="nav_open">Nav open</string>
     <string name="nav_close">Nav close</string>
@@ -17,7 +17,7 @@
     <string name="error">Ocorreu um erro</string>
     <string name="next">Seguinte</string>
     <string name="try_again">Tentar de novo</string>
-    <string name="string_entry">Bem Vindo à UpDriven</string>
+    <string name="string_entry">Bem Vindo à RoadBuddy</string>
     <string name="confirm">Confirmar</string>
     <string name="departure">Partida</string>
     <string name="driver">Condutor</string>

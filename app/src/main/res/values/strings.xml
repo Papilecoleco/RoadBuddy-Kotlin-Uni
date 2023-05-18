@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">UpDriven</string>
+    <string name="app_name">RoadBuddy</string>
     <string name="login">Login</string>
     <string name="enter_email">Email</string>
     <string name="enter_your_password">Password</string>
     <string name="enter_your_username">Username</string>
     <string name="enter_your_name">Name</string>
     <string name="register">Register</string>
-    <string name="welcome">Welcome to upDriven</string>
+    <string name="welcome">Welcome to RoadBuddy</string>
     <string name="not_a_member_register_here">Not a member ? Register</string>
     <string name="nav_open">Nav open</string>
     <string name="nav_close">Nav close</string>
-    <string name="string_entry">Welcome to UpDriven</string>
+    <string name="string_entry">Welcome to RoadBuddy</string>
     <string name="confirm">Confirm</string>
     <string name="departure">Departure</string>
     <string name="driver">Driver:</string>

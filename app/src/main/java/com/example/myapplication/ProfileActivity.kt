@@ -44,8 +44,8 @@ class ProfileActivity : AppCompatActivity() {
         storageReference = FirebaseStorage.getInstance().reference
 
         binding.btnChooseImage.setOnClickListener { launchGallery() }
-        binding.btnUploadImage.setOnClickListener { uploadImage() }
-        binding.editNomeBtn.setOnClickListener {
+        //binding.btnUploadImage.setOnClickListener { uploadImage() }
+        /*binding.editNomeBtn.setOnClickListener {
             binding.lleditName.visibility = View.VISIBLE
         }
         binding.editUsernameBtn.setOnClickListener {
@@ -56,6 +56,12 @@ class ProfileActivity : AppCompatActivity() {
         }
         binding.btnEditUsername.setOnClickListener {
             editNameOrUsername("username", binding.etNovoUsername.text.toString())
+        }*/
+
+        binding.btnEdit.setOnClickListener {
+            editNameOrUsername("name", binding.etNovoNome.text.toString())
+            editNameOrUsername("username", binding.etNovoNome.text.toString())
+            uploadImage()
         }
 
         database = Firebase.database(Utils.DB_URL).reference
@@ -110,30 +116,33 @@ class ProfileActivity : AppCompatActivity() {
                             // Save the download URL to the Firebase Database
                             val imageUrl = downloadUrl.toString()
                             database.child("Users").child(currentFirebaseUser).child("imageURL").setValue(imageUrl)
-                            Toast.makeText(this, "Image uploaded successfully!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Image carregada com successo!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, DashboardActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
                         .addOnFailureListener { exception ->
-                            Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Falha a carregar imagem: ${exception.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
                 ?.addOnFailureListener { exception ->
-                    Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Falha a carregar imagem: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Por favor, selecione uma imagem!", Toast.LENGTH_SHORT).show()
         }
     }
 
 
     private fun editNameOrUsername(child: String, value: String) {
-        database.child("Users").child(currentFirebaseUser).child(child).setValue(value)
-
-        Toast.makeText(this, "$child alterado com sucesso!", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, DashboardActivity::class.java).apply {}
-        startActivity(intent)
+        if (value != ""){
+            database.child("Users").child(currentFirebaseUser).child(child).setValue(value)
+            Toast.makeText(this, "$child alterado com sucesso!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, DashboardActivity::class.java).apply {}
+            //startActivity(intent)
+        }else{
+            Toast.makeText(this, "$child não foi alterado", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

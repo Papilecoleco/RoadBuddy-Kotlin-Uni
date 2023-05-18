@@ -10,13 +10,13 @@
     <color name="gray">#5E605F</color>
     <color name="light_gray">#9A9A9A</color>
     <color name="magenta">#FF6969</color>
-    <color name="main_color">#5e605f</color>
+    <color name="main_color">#268CAC</color>
     <color name="nav_color">#D3D0D0</color>
-    <color name="underLine">#FD3E3E</color>
-    <color name="salmon">#FF9999</color>
-    <color name="redd">#FF0A0A</color>
-    <color name="eng_red">#B80000</color>
-    <color name="barn_red">#7A0000</color>
+    <color name="underLine">#45B1B1</color>
+    <color name="even_lighter_blue">#4EDFFF</color>
+    <color name="blue2">#A7EAFF</color>
+    <color name="blue3">#00B8B8</color>
+    <color name="light_blue">#45B1B1</color>
     <color name="grayish">#C1C1C1</color>
 
 </resources>
