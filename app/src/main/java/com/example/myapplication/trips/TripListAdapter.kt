@@ -27,8 +27,11 @@ class TripListAdapter(var item: List<Trip>) : RecyclerView.Adapter<TripListAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserHolder {
         val binding = ViewTripListItemBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false)
+            .inflate(LayoutInflater.from(parent.context), parent,
+                false)
+
         return UserHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: UserHolder, position: Int) {

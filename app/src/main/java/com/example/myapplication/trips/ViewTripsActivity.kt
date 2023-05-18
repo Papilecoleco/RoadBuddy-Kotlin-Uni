@@ -4,6 +4,7 @@ package com.example.myapplication.trips
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ class ViewTripsActivity : AppCompatActivity() {
     val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         super.onCreate(savedInstanceState)
         binding = ActivityViewTripsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -56,5 +58,13 @@ class ViewTripsActivity : AppCompatActivity() {
                 Toast.makeText(this@ViewTripsActivity, error.message, Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
