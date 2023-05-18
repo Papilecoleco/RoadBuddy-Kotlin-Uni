@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -46,6 +47,8 @@ class AddTripActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTripBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         databaseTripReference = FirebaseDatabase.getInstance(Utils.DB_URL).getReference("Trip")
         sharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
@@ -112,6 +115,14 @@ class AddTripActivity : AppCompatActivity() {
             )
             timePicker.show()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun submitTrip() {

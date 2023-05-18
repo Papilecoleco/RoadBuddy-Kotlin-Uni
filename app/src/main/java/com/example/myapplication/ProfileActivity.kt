@@ -8,8 +8,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityProfileBinding
 import com.example.myapplication.db.AppDatabase
@@ -39,6 +41,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
@@ -77,6 +81,15 @@ class ProfileActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         userUid = Utils.getUserId(sharedPreferences)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    
 
     private fun launchGallery() {
         val intent = Intent()

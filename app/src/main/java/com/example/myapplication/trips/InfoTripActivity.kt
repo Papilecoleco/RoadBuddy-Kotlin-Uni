@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.DashboardActivity
@@ -25,6 +26,9 @@ class InfoTripActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoBoleiaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         databaseTripReference = FirebaseDatabase.getInstance(Utils.DB_URL).getReference("Trip")
         sharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         trip.userUid = Utils.getUserId(sharedPreferences)
@@ -49,6 +53,14 @@ class InfoTripActivity : AppCompatActivity() {
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
